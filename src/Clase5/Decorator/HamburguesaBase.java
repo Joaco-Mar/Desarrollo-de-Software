@@ -2,7 +2,12 @@ package Clase5.Decorator;
 
 public class HamburguesaBase implements IHamburguesa{
     private int precio = 10;
-    private String descripcion = "Pan + Carne";
+    private String descripcion = "Hamburguesa simple";
+
+    public HamburguesaBase(HamburguesaBase burga){
+        this.precio=burga.getPrecio();
+        this.descripcion=burga.getDescripcion();
+    }
 
     public HamburguesaBase(){
 

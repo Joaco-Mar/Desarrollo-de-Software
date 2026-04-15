@@ -1,23 +1,19 @@
 package Clase5.Decorator;
 
-public class QuesoDecorator implements IHamburguesa{
+public class QuesoDecorator extends HamburguesaDecorator{
     private int precio = 3;
-    private String descripcion = "Queso";
+    private String descripcion = " con Queso";
 
-    public QuesoDecorator(HamburguesaBase hamburguesa){
-        hamburguesa.setPrecio(hamburguesa.getPrecio()+precio);
+    public QuesoDecorator(IHamburguesa hamburguesa){
+        super(hamburguesa);
     }
 
     public int getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
+        return hamburguesaDecorada.getPrecio()+precio;
     }
 
     public String getDescripcion() {
-        return descripcion;
+        return hamburguesaDecorada.getDescripcion()+descripcion;
     }
 
     public void setDescripcion(String descripcion) {
