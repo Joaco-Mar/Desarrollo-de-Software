@@ -1,24 +1,28 @@
 package Clase9.TemplateMethod.Ej1;
 
 public abstract class SueldosGeneral {
-    private int horas;
-    private int pagoXHora;
-    private int sueldoBruto;
-    private int sueldoACobrar;
-    private int porcentajeDeducciones;
+    protected double horasTrabajadas;
+    public final void liquidarSueldo() {
+        // Use the instance field instead of declaring a new local variable
+        cargarDiasTrabajados(horasTrabajadas);
+        double bruto = calcularSueldoBruto();
+        double deducciones = calcularDeducciones(bruto);
+        double bonos = calcularBonos();
+        double neto = bruto - deducciones + bonos;
+        generarReciboYEmitirPago(neto);
+    }
 
-    public int CargarHoras(int horasTrabajadas){
-        return horasTrabajadas;
+    // Pasos comunes con implementación por defecto
+    protected void cargarDiasTrabajados(double horasTrabajadas) {
+        System.out.println("Cargando " + horasTrabajadas + " horas trabajadas del mes en el sistema.");
     }
-    public int CalcularSueldoBase(){
-        return pagoXHora*horas;
+
+    protected void generarReciboYEmitirPago(double neto) {
+        System.out.println("Recibo digital generado. Transferencia bancaria emitida por: $" + neto);
     }
-    public int AplicarDeducciones(){
-        int sueldo =porcentajeDeducciones*sueldoACobrar/100;
-        return sueldo;
-    }
-    abstract public int AplicarBonos(){
-        
-    }
-    abstract public void GenerarResumen();
+
+    // Pasos abstractos: Las subclases DEBEN personalizar estos cálculos
+    protected abstract double calcularSueldoBruto();
+    protected abstract double calcularDeducciones(double bruto);
+    protected abstract double calcularBonos();
 }
