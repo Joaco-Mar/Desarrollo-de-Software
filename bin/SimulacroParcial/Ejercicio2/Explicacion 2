@@ -1,3 +1,0 @@
-El patron es Adapter
-Ya que se encarga de Adaptar cosas que quedaron incomapatibles para que funcionen con otras cosas.
-La estructura consiste en una clase con un AudioExterno incompatible, luego la clase Adapter, que implementa nuestra interfaz Reproductor, implementa reproducir() que recibe ese audio viejo y lo hace compatible con el nuevo formato, para ejemplo de demostracion simplemente es un String que le cambio la palabra antiguo a adaptado, pero podria ser cualquier tipo de dato.

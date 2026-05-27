@@ -1,3 +1,0 @@
-Utilicé el patron Factory Method
-Ya que quiero generar distintos documentos sin referenciar directaente a las clases con las que voy a crearlos 
-La estructura principal de la solucion es que tengo una interfaz IDocumento que es implmentada por los tipos de documentos y los obliga a hacer las operaciones, luego tengo una clase DocumentoFactory que se escarga de instanciar un objeto de la clase que corresponda y asi separa lo que ve el usuario de las clases finales.
